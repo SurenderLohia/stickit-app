@@ -2,7 +2,7 @@ var Backbone = require("backbone");
   
  var Address = Backbone.Model.extend({
    defaults: {
-     "name": "Baloo The Bear",
+     "name": "Baloo The Bear new-88",
      "email": "balu@junglebook.com",
      "street": "Middle of Nowhere 1",
      "zip": "12345",

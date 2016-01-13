@@ -1,5 +1,7 @@
 var Backbone = require("backbone");
- var Stickit = require("backbone.stickit");
+var Stickit = require("backbone.stickit");
+var _ = require("underscore");
+var viewTemplate = require('templates/preview.html');
  
  var Preview = Backbone.View.extend({
    bindings: {
@@ -12,18 +14,11 @@ var Backbone = require("backbone");
      '.phone': 'phone',
      '.web': 'web'
    },
+
+   template: _.template(viewTemplate),
+
    render: function() {
-     this.$el.html('<div class="name"></div>\
-       <hr /> \
-       <div class="column"> \
-         <div class="email"></div> \
-         <div class="street"></div> \
-         <span class="zip"></span><span class="city"></span> \
-       </div> \
-       <div class="country"></div> \
-       <div class="phone"></div> \
-       <div class="web"></div> \
-    ');
+     this.$el.html(this.template(this.model));
      this.stickit();
      return this;
    }
